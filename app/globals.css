@@ -363,6 +363,54 @@ img {
   line-height: 1.55;
 }
 
+.statsSection {
+  padding: clamp(70px, 11vw, 130px) clamp(20px, 6vw, 88px);
+  border-block: 1px solid var(--line);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(28px, 4vw, 64px);
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.statNumber {
+  display: flex;
+  align-items: baseline;
+  margin: 0;
+  color: var(--foreground);
+  font-size: clamp(2.8rem, 5.4vw, 5.4rem);
+  font-weight: 820;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.statSuffix {
+  margin-left: 4px;
+  color: var(--accent);
+  font-size: 0.6em;
+  font-weight: 760;
+}
+
+.statLabel {
+  max-width: 220px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
 .workflow {
   display: grid;
   grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1fr);
@@ -534,6 +582,10 @@ img {
   .workflow,
   .footerSection {
     grid-template-columns: 1fr;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .bentoGrid {

@@ -61,6 +61,13 @@ const marqueeItems = [
   "Systems",
 ];
 
+const stats = [
+  { value: 48, suffix: "+", label: "Launches shipped since 2019." },
+  { value: 12, suffix: " wk", label: "Average engagement, brief to live." },
+  { value: 96, suffix: "%", label: "Of clients return for a follow-on." },
+  { value: 4, suffix: "", label: "People in the studio, on every project." },
+];
+
 export default function Home() {
   const root = useRef(null);
 
@@ -113,6 +120,37 @@ export default function Home() {
             pin: ".workflowIntro",
             pinSpacing: false,
           });
+        },
+      });
+
+      gsap.utils.toArray(".statValue").forEach((node) => {
+        const target = Number(node.dataset.value);
+        const counter = { current: 0 };
+        gsap.to(counter, {
+          current: target,
+          duration: 1.6,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: node,
+            start: "top 82%",
+            once: true,
+          },
+          onUpdate: () => {
+            node.firstChild.nodeValue = Math.round(counter.current).toString();
+          },
+        });
+      });
+
+      gsap.from(".statItem", {
+        y: 28,
+        opacity: 0,
+        duration: 0.9,
+        stagger: 0.12,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".statsSection",
+          start: "top 80%",
+          once: true,
         },
       });
 
@@ -216,6 +254,22 @@ export default function Home() {
             </article>
           ))}
         </div>
+      </section>
+
+      <section className="statsSection" aria-label="Studio at a glance">
+        <ol className="statsGrid">
+          {stats.map((stat) => (
+            <li className="statItem" key={stat.label}>
+              <p className="statNumber">
+                <span className="statValue" data-value={stat.value}>
+                  {"0"}
+                </span>
+                <span className="statSuffix">{stat.suffix}</span>
+              </p>
+              <p className="statLabel">{stat.label}</p>
+            </li>
+          ))}
+        </ol>
       </section>
 
       <section id="workflow" className="workflow">
