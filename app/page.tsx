@@ -19,22 +19,8 @@ export default function Home() {
             Plan visually, preview live, ship production-ready code.
             <br />
             <br />
-            Spin up your next Lightsprint app from this template. Head to
-            the{" "}
-            <a
-              href="#"
-              className="font-medium text-zinc-950 underline decoration-[#FF9D00] underline-offset-4 dark:text-zinc-50"
-            >
-              docs
-            </a>{" "}
-            or open the{" "}
-            <a
-              href="#"
-              className="font-medium text-zinc-950 underline decoration-[#FF9D00] underline-offset-4 dark:text-zinc-50"
-            >
-              workbench
-            </a>{" "}
-            to start sprinting.
+            Spin up your next Lightsprint app from this template to start
+            sprinting.
           </p>
         </div>
       </main>
